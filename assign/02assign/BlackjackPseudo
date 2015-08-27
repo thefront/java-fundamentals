@@ -1,0 +1,39 @@
+start outer loop (repeat = y)
+    generate 2 cards
+    add them together
+
+    start loop (hit = y)
+        print the total
+        do you want another card? y/n = anotherCard
+        switch (anotherCard)
+            case 'y':
+            case 'Y':
+                issue new card
+                print new card
+                add to total
+                if total > 21
+                    print bust, break
+                if total = 21
+                    print win, break
+            case 'N':
+            case 'n':
+                hit = n;
+                break
+            default:
+                print "didn't recognize response"
+
+    do you want to play again? = repeat
+        switch (repeat)
+            case 'y':
+            case 'Y':
+                print ok, playing again
+                break;
+            case 'n':
+            case 'N':
+                print goodbye
+                repeat = n
+                break;
+            default:
+                print didn't recognize input, goodbye
+                repeat = n
+                break;
