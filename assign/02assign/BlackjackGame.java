@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: Aug 26, 2015
+// Date: Aug 28, 2015
 // Description: A command line game of a simplified version of Blackjack.
 //              This game has no Aces and your do not play against the dealer.
 //              The program should generate random number between 1 and 10 each
@@ -33,12 +33,12 @@ public class BlackjackGame {
       card1 = randomNum.nextInt(10) + 1;
       cardN = randomNum.nextInt(10) + 1;
       total = card1 + cardN;
-      System.out.println("First cards: " + card1 + ", " + cardN);
-      System.out.println("Total: " + total);
+      System.out.println("> First cards: " + card1 + ", " + cardN);
+      System.out.println("> Total: " + total);
 
       // inner hit loop to see if player wants another card
       while (hit != 'n') {
-        System.out.print("Do you want another card? (y/n): ");
+        System.out.print("> Do you want another card? (y/n): ");
         hit = keyIn.next().charAt(0);         // assign hit to player decision
 
         // outcome of hit decision
@@ -46,17 +46,17 @@ public class BlackjackGame {
 
           // generate new card, add to total, print new card and total
           cardN = randomNum.nextInt(10) + 1;
-          System.out.println("Card: " + cardN);
+          System.out.println("> Card: " + cardN);
           total += cardN;
-          System.out.println("Total: " + total);
+          System.out.println("> Total: " + total);
 
           // check total if it's > 21, bust or = 21 win!
           if (total > 21) {
-            System.out.println("Bust.");
+            System.out.println("> Bust.");
             hit = 'n'; // needed to break out to hit loop
           }
           if (total == 21) {
-            System.out.println("You win!");
+            System.out.println("> You win!");
             hit = 'n'; // needed to break out to hit loop
           }
         }
@@ -65,12 +65,12 @@ public class BlackjackGame {
         }
         else {
           // address if player enters some crazy answer, just repeats hit loop
-          System.out.println("I didn't understand your response!");
+          System.out.println("> I didn't understand your response!");
         }
       }
 
       // Play again decision clause
-      System.out.print("Would you like to play again? (y/n): ");
+      System.out.print("> Would you like to play again? (y/n): ");
       repeat = keyIn.next().charAt(0);
 
       if (repeat == 'y' || repeat == 'Y') {
@@ -83,7 +83,7 @@ public class BlackjackGame {
       }
       else {
         // address if player enters some crazy answer, just exit
-        System.out.println("I didn't understand, exiting!");
+        System.out.println("> I didn't understand, exiting!");
       }
     }
   }
