@@ -10,7 +10,7 @@
 
 import java.util.*;
 
-public class NumberGuess {
+public class NumberGuesser {
 
   /** This is the main method that loops through the game and prompts to play
       again or not.
