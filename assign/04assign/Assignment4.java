@@ -50,8 +50,6 @@ public class Assignment4 {
 
   public static void getHand(int pokerHand[]) {
     Scanner input = new Scanner(System.in);
-    char tooMany = 'n';
-
 
     System.out.println("Enter five numberic cards, no face cards. Use 2-9.");
 
