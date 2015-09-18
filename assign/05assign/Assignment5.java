@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 09/17/2015
+// Date: 09/18/2015
 // Description: This program will prompt the user to enter 5 names and 5 scores.
 //              The program will then print out the ranking of the scores from
 //              the highest to the lowest scores.
@@ -14,50 +14,72 @@ public class Assignment5 {
   public static void main(String[] args) {
     // declare variables
     ArrayList<String> namesList  = new ArrayList<String>();    // for names
-    ArrayList<Integer>    scoresList = new ArrayList<Integer>();      // for scores
+    ArrayList<Integer> scoresList = new ArrayList<Integer>();  // for scores
 
     // method to get scores
     initailize(namesList, scoresList);
-
-    for (int i = 0; i < namesList.size(); i++) {
-      System.out.println(namesList.get(i));
-    }
-
-    for (int j = 0; j < scoresList.size(); j++) {
-      System.out.println(scoresList.get(j));
-    }
 
     // method to sort scores
     //sort(namesList, scoresList);
 
     // method to display scores
-    //display(namesList, scoresList);
+    display(namesList, scoresList);
   }
 
-  /** this method collects the names and scores
-      @param1 userList  an ArrayList for names
-      @param2 marksList an ArrayList for the scores
-      @return ArrayList of names and scores
+
+  /** The initialize method accepts the two ArrayLists as its arguments.
+      The user is prompted to enter the names and scores for each element.
+      @param1 names    A reference to the ArrayList for names
+      @param2 scores   A reference to the ArrayList for scores
   */
 
-  public static void initailize(ArrayList<String> userList, ArrayList<Integer> marksList) {
+  public static void initailize(ArrayList<String> names, ArrayList<Integer> scores) {
     final int NUMUSERS = 5;
     Scanner input = new Scanner(System.in);
     String user;
     int score;
 
     for (int i = 0; i < NUMUSERS; i++) {
+      // get the names and add to ArrayList
       System.out.print("Enter the name for score #" + (i + 1) + ": ");
-      user = input.nextLine();
-      userList.add(user);
+      user = input.next();
+      names.add(user);
 
-      System.out.println("");
-      
+      // get the scores and add to ArrayList
       System.out.print("Enter the score for score #" + (i + 1) + ": ");
       score = input.nextInt();
-      marksList.add(score);
+      scores.add(score);
     }
-
   }
 
+
+  /** The sort method accepts the two ArrayLists as its arguments and then 
+      displays the ArrayLists.
+      @param1 names    A reference to the ArrayList for names
+      @param2 scores   A reference to the ArrayList for scores
+  */
+
+  public static void sort(ArrayList<String> names, ArrayList<Integer> scores) {
+    // declare minimum valies and minimum index
+    int minValue, minIndex;
+
+    
+  }
+
+
+  /** The display method accepts the two ArrayLists as its arguments and then 
+      displays the ArrayLists.
+      @param1 names    A reference to the ArrayList for names
+      @param2 scores   A reference to the ArrayList for scores
+  */
+
+  public static void display(ArrayList<String> names, ArrayList<Integer> scores) {
+    
+    System.out.println("\nTop Scores:");
+
+    // print the names and scores
+    for (int i = 0; i < names.size(); i++) {
+      System.out.print(names.get(i) + ": " + scores.get(i) + "\n");
+    }
+  }
 }
