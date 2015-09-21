@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 09/19/2015
+// Date: 09/20/2015
 // Description: This program will prompt the user to enter 5 names and 5 scores.
 //              The program will then print out the ranking of the scores from
 //              the highest to the lowest scores.
@@ -54,21 +54,27 @@ public class Assignment5 {
 
 
   /** The sort method accepts the two ArrayLists as its arguments and then
-      displays the ArrayLists.
+      uses selection sort to determine an ascending ArrayLists.
       @param1 names    A reference to the ArrayList for names
       @param2 scores   A reference to the ArrayList for scores
   */
 
   public static void sort(ArrayList<String> names, ArrayList<Integer> scores) {
-    // declare minimum valies and minimum index
+    // declare minimum values, minimum name string, and minimum index
     int minValue, minIndex;
     String minName;
 
+    // first outer loop to test one value in array at a time
     for (int i = 0; i < (scores.size() - 1); i++) {
+      // assign values to minimum for swapping purposes as we don't have a swap
+      // method
       minIndex = i;
       minValue = scores.get(i);
       minName  = names.get(i);
 
+      // second inner loop compares the array element from outer loop with others
+      // in the array. If there is a minimum value found, assign that index to
+      // minimum
       for (int j = i + 1; j < scores.size(); j++) {
         if (scores.get(j) < scores.get(minIndex)) {
           minIndex = j;
@@ -87,7 +93,7 @@ public class Assignment5 {
 
 
   /** The display method accepts the two ArrayLists as its arguments and then
-      displays the ArrayLists.
+      displays the ArrayLists in descending order-highest to lowest.
       @param1 names    A reference to the ArrayList for names
       @param2 scores   A reference to the ArrayList for scores
   */
@@ -96,7 +102,7 @@ public class Assignment5 {
 
     System.out.println("\nTop Scorers:");
 
-    // print the names and scores
+    // print the names and scores from highest to lowest
     for (int i = (names.size() - 1); i >= 0; i--) {
       System.out.print(names.get(i) + ": " + scores.get(i) + "\n");
     }
