@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 09/18/2015
+// Date: 09/19/2015
 // Description: This program will prompt the user to enter 5 names and 5 scores.
 //              The program will then print out the ranking of the scores from
 //              the highest to the lowest scores.
@@ -20,7 +20,7 @@ public class Assignment5 {
     initailize(namesList, scoresList);
 
     // method to sort scores
-    //sort(namesList, scoresList);
+    sort(namesList, scoresList);
 
     // method to display scores
     display(namesList, scoresList);
@@ -53,7 +53,7 @@ public class Assignment5 {
   }
 
 
-  /** The sort method accepts the two ArrayLists as its arguments and then 
+  /** The sort method accepts the two ArrayLists as its arguments and then
       displays the ArrayLists.
       @param1 names    A reference to the ArrayList for names
       @param2 scores   A reference to the ArrayList for scores
@@ -62,23 +62,42 @@ public class Assignment5 {
   public static void sort(ArrayList<String> names, ArrayList<Integer> scores) {
     // declare minimum valies and minimum index
     int minValue, minIndex;
+    String minName;
 
-    
+    for (int i = 0; i < (scores.size() - 1); i++) {
+      minIndex = i;
+      minValue = scores.get(i);
+      minName  = names.get(i);
+
+      for (int j = i + 1; j < scores.size(); j++) {
+        if (scores.get(j) < scores.get(minIndex)) {
+          minIndex = j;
+          minValue = scores.get(j);
+          minName  = names.get(j);
+        }
+      }
+
+      // swap score and name values
+      scores.set(minIndex, scores.get(i));
+      names.set(minIndex, names.get(i));
+      scores.set(i, minValue);
+      names.set(i, minName);
+    }
   }
 
 
-  /** The display method accepts the two ArrayLists as its arguments and then 
+  /** The display method accepts the two ArrayLists as its arguments and then
       displays the ArrayLists.
       @param1 names    A reference to the ArrayList for names
       @param2 scores   A reference to the ArrayList for scores
   */
 
   public static void display(ArrayList<String> names, ArrayList<Integer> scores) {
-    
-    System.out.println("\nTop Scores:");
+
+    System.out.println("\nTop Scorers:");
 
     // print the names and scores
-    for (int i = 0; i < names.size(); i++) {
+    for (int i = (names.size() - 1); i >= 0; i--) {
       System.out.print(names.get(i) + ": " + scores.get(i) + "\n");
     }
   }
