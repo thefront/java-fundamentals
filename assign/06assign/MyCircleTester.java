@@ -1,38 +1,49 @@
 // Name: Richard Tzeng
 // Date: 09/22/2015
-
-/**
-    This program demos the Rectangle class's setLength, setWidth, getLength,
-    getWidth, and getArea methods.
-*/
+// Description: This program tests the MyCircle class. It creates 5 circles
+//              and prints their respective information.
+// Inputs: none
+// Outputs: x and y coordinates, area, radius, and if they overlap
 
 public class MyCircleTester {
   public static void main(String[] args) {
-    // create a Rectangle object
-    MyCircle c1 = new MyCircle();
-    MyCircle c2 = new MyCircle();
+    final int NUM_CIRCLES = 5; // Number of circles
 
-    // set x to 10.0, y to 20.0, radius 5 for circle 1
-    c1.setX(10.0);
-    c1.setY(20.0);
-    c1.setRadius(5.0);
+    // create the circle objects
+    MyCircle[] circles = new MyCircle[NUM_CIRCLES];
 
-    // set x to 10.0, y to 20.0, radius 5 for circle 1
-    c2.setX(100.0);
-    c2.setY(200.0);
-    c2.setRadius(20.0);
+    // create the circle x, y, and radius values
+    double [] xValues   = {10.0, 100.0,   5.0,  -5.0, -1.0};
+    double [] yValues   = {20.0, 200.0, -10.0, -10.0, 30.0};
+    double [] radValues = { 5.0,  20.0,  50.0, 100.0, 10.0};
 
+    for (int i = 0; i < circles.length; i++) {
+      circles[i] = new MyCircle();
+      circles[i].setX(xValues[i]);
+      circles[i].setY(yValues[i]);
+      circles[i].setRadius(radValues[i]);
+    }
 
     // display the circle1 x, y, radius, and area
-    System.out.println("The c1 x is " + c1.getX());
-    System.out.println("The c1 y is " + c1.getY());
-    System.out.println("The c1 radius is " + c1.getRadius());
-    System.out.println("The c1 area is " + c1.getArea());
+    for (int i = 0; i < circles.length; i++) {
+      System.out.println("The Circle " + (i + 1) + " x is " + circles[i].getX());
+      System.out.println("The Circle " + (i + 1) + " y is " + circles[i].getY());
+      System.out.println("The Circle " + (i + 1) + " radius is " +
+                          circles[i].getRadius());
+      System.out.println("The Circle " + (i + 1) + " area is " +
+                          circles[i].getArea());
 
-    // display the circle2 x, y, radius, and area
-    System.out.println("The c2 x is " + c2.getX());
-    System.out.println("The c2 y is " + c2.getY());
-    System.out.println("The c2 radius is " + c2.getRadius());
-    System.out.println("The c2 area is " + c2.getArea());
+      for (int j = (i + 1); j < (circles.length); j++ ) {
+        // see if the circles overlap
+        if (circles[i].doesOverlap(circles[j])) {
+          System.out.println("Circle " + (i + 1) + " overlaps with Circle " + (j + 1));
+        }
+        else {
+          System.out.println("Circle " + (i + 1) + " does NOT overlap Circle " + (j + 1));
+        }
+      }
+      // add extra line
+      System.out.println();
+    }
   }
 }

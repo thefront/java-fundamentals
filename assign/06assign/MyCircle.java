@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 09/22/2015
+// Date: 09/28/2015
 // Description: class definition of a circle
 //
 
@@ -18,7 +18,7 @@ public class MyCircle {
   }
 
   /**
-      The getX method returns a MyCirle object's x coordinate.
+      The getX method returns a MyCircle object's x coordinate.
       @return The value in the x field.
   */
 
@@ -36,7 +36,7 @@ public class MyCircle {
   }
 
   /**
-      The getY method returns a MyCirle object's y coordinate.
+      The getY method returns a MyCircle object's y coordinate.
       @return The value in the y field.
   */
 
@@ -54,7 +54,7 @@ public class MyCircle {
   }
 
   /**
-      The getRadius method returns a MyCirle object's radius.
+      The getRadius method returns a MyCircle object's radius.
       @return The value in the radius field.
   */
 
@@ -63,15 +63,28 @@ public class MyCircle {
   }
 
   /**
-      The getArea method returns a MyCirle object's area.
+      The getArea method returns a MyCircle object's area.
       @return The product of PI times radius squared.
   */
 
   public double getArea() {
-    return 3.14 * Math.pow(radius, 2.0);
+    return Math.PI * Math.pow(radius, 2.0);
   }
 
-  //public boolean doesOverlap(MyCircle, otherCircle) {
+  public boolean doesOverlap(MyCircle otherCircle) {
+    // circles overlap if the sum of the Radius is greater than the distance
+    // between the centers of the circles
+    double sumRadius   = getRadius() + otherCircle.getRadius();
 
-  //}
+    // dist between centers is sqrt(a^2 + b^2)
+    double distCenters = Math.sqrt(Math.pow(getX() + otherCircle.getX(), 2.0) +
+                                   Math.pow(getY() + otherCircle.getY(), 2.0) );
+
+    if (sumRadius > distCenters) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
