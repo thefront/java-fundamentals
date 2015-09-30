@@ -1,27 +1,39 @@
 // Name: Richard Tzeng
 // Date: 09/22/2015
-// Description: This program tests the MyCircle class. It creates 5 circles
+// Description: This program tests the MyCircle class. It creates 10 circles
 //              and prints their respective information.
 // Inputs: none
 // Outputs: x and y coordinates, area, radius, and if they overlap
 
+import java.util.*;
+
 public class MyCircleTester {
   public static void main(String[] args) {
-    final int NUM_CIRCLES = 5; // Number of circles
+    final int NUM_CIRCLES = 10; // Number of circles
 
     // create the circle objects
     MyCircle[] circles = new MyCircle[NUM_CIRCLES];
 
-    // create the circle x, y, and radius values
+    // create the circle x, y, and radius values for the first 5 circles
     double [] xValues   = {10.0, 100.0,   5.0,  -5.0, -1.0};
     double [] yValues   = {20.0, 200.0, -10.0, -10.0, 30.0};
     double [] radValues = { 5.0,  20.0,  50.0, 100.0, 10.0};
+    Random randomValue = new Random();
 
-    for (int i = 0; i < circles.length; i++) {
+    // use set values for 1st 5 circles
+    for (int i = 0; i < (circles.length / 2); i++) {
       circles[i] = new MyCircle();
       circles[i].setX(xValues[i]);
       circles[i].setY(yValues[i]);
       circles[i].setRadius(radValues[i]);
+    }
+
+    // use random numbers for last 5 circles
+    for (int z = (circles.length / 2); z < circles.length; z++) {
+      circles[z] = new MyCircle();
+      circles[z].setX(randomValue.nextDouble() * 100.0);
+      circles[z].setY(randomValue.nextDouble() * 100.0);
+      circles[z].setRadius(randomValue.nextDouble() * 100.0);
     }
 
     // display the circle1 x, y, radius, and area
