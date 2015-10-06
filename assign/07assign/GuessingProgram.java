@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 10-06-2015
+// Date: 10-05-2015
 // Description: This program is a number guessing game. It uses the
 //              NumberGuesser class to adjust the guessing values based on the
 //              user's response. It also uses the binary search algorithm. To
@@ -24,8 +24,8 @@ public class GuessingProgram {
 
     // start guessing loop
     do {
-      playOneGame(game);
-    } while (shouldPlayAgain(game));
+      playOneGame(game);              // start one game with the game object
+    } while (shouldPlayAgain(game));  // play again and reset the game
   }
 
 
@@ -42,7 +42,7 @@ public class GuessingProgram {
 
     if (answer == 'y' || answer == 'Y') {
       playAgain = true;
-      oneGame.reset();
+      oneGame.reset();      // resets the game back to original values
     }
     else if (answer == 'n' || answer == 'N') {
       playAgain = false;
@@ -76,12 +76,10 @@ public class GuessingProgram {
       if (guessAgain == 'l' || guessAgain == 'L') {
         // calls lower to assign guess to high int
         mainGame.lower();
-        mainGame.getCurrentGuess();
       }
       else if (guessAgain == 'h' || guessAgain == 'H') {
         // calls higher to assign guess to low int
         mainGame.higher();
-        mainGame.getCurrentGuess();
       }
       else if (guessAgain == 'c' || guessAgain == 'C') {
         // c or C ends the loop and prints the pick.
@@ -98,7 +96,7 @@ public class GuessingProgram {
 
   /** This method prompts the user to reveal that the number is higher, lower,
       or the correct number.
-      @param1 guess the computer's guess
+      @param1 guess the computer's guess from the object's method
       @return the character answer response, l/h/c
   */
 

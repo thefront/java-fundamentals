@@ -1,7 +1,8 @@
 // Name: Richard Tzeng
-// Date: 10/6/2015
+// Date: 10/5/2015
 // Description: This progarm contains the NumberGuesser class which will
-//              contain all the logic for guessing the number.
+//              contain all the logic for guessing the number:
+//              Constructor, lower, higher, getCurrentGuess, and reset methods
 //
 
 public class NumberGuesser {
