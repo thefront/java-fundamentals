@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 10/12/2015
+// Date: 10/13/2015
 // Description: This program tests the Circle class. It creates 10 circles
 //              and prints their respective information.
 // Inputs: none

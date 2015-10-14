@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 10/12/2015
+// Date: 10/13/2015
 // Description: class definition of center of circle, aka origin of a circle
 
 public class Point

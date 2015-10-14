@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 10/12/2015
+// Date: 10/13/2015
 // Description: class definition of a circle
 //
 
@@ -39,8 +39,7 @@ public class Circle {
   */
 
   public Circle() {
-    origin = new Point(0.0, 0.0);
-    radius = 1.0;
+    this(0, 0, 1);
   }
 
 
@@ -49,8 +48,7 @@ public class Circle {
   */
 
   public Circle(Circle c) {
-    origin = new Point(c.getX(), c.getY());
-    radius = c.getRadius();
+    this(c.origin, c.radius);
   }
 
 
