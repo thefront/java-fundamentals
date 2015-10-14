@@ -1,4 +1,4 @@
-/** Code-listing 8-16
+/** Code-listing 7-16
     This program works with an array of three BankAccount objects
 */
 
