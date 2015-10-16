@@ -25,8 +25,8 @@ public class Dealer {
     final int SIDES = 6;  // Number of sides for the dice
 
     // create the two dice.
-    Die die1 = new Dice(SIDES);
-    Die die2 = new Dice(SIDES);
+    Die die1 = new Die(SIDES);
+    Die die2 = new Die(SIDES);
 
     // Record their values
     die1Value = die1.getValue();
@@ -39,7 +39,7 @@ public class Dealer {
   */
 
   public String getChoOrHan() {
-    String results;  // to hold the results
+    String result;  // to hold the results
 
     // Get the sum of the dice.
     int sum = die1Value + die2Value;

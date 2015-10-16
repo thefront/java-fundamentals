@@ -20,6 +20,23 @@ public class Stock {
   }
 
   /**
+      another constructor using this
+  */
+
+  public Stock(String sym) {
+    this(sym, 0.0);
+  }
+
+  /**
+      Copy constructor
+  */
+
+  public Stock(Stock object2) {
+    symbol = object2.symbol;
+    sharePrice = object2.sharePrice;
+  }
+
+  /**
       getSymbol method
       @return The stock's trading symbol
   */
@@ -48,4 +65,29 @@ public class Stock {
     // return the string
     return str;
   }
+
+  public boolean equals(Stock object2) {
+    boolean status;
+
+    // determine whetehr this object's symbol and sharePrice fields are equal to
+    // object2's symbol and sharePrice
+    if (symbol.equals(object2.symbol) &&
+       sharePrice == object2.sharePrice) {
+       status = true;   // yes, the objects are equal
+    }
+    else
+      status = false;   // no, the objects are not equal
+
+    return status;
+  }
+
+  public Stock copy() {
+    // create a new stock ojbect and initialize it with the same data held by
+    // the calling object.
+    Stock copyObject = new Stock(symbol, sharePrice);
+
+    // return a reference to the new object
+    return copyObject;
+  }
+
 }
