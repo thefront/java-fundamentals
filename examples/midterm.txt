@@ -1,0 +1,195 @@
+/**
+    1) Write a method called almostSorted.
+*/
+
+public static boolean almostSorted(int num[]) {
+    // declare boolean variable
+    boolean isSorted;
+
+    // first outer loop to compare one value in array at a time
+    for (int i = 0; i < (num.size() - 1); i++) {
+        // second inner loop compares the array element from outer loop with
+        // others in the array. If next number in array is smaller, return false
+        // else keep checking and assign boolean to true.
+        for (int j = i + 1; j < num.size(); j++) {
+            if (num.get(j) < num.get(i)) {
+                isSorted = false;
+                break;
+            }
+            else {
+                isSorted = true;
+            }
+        }
+    }
+    // return boolean
+    return isSorted;
+}
+
+
+/**
+    2) Write java statements:
+*/
+
+String[] bartStops = { "Civic Center", "Van Ness", "16th Street", "24th Street" };
+
+
+/**
+    3) What's the diff between instance variable and local variable.
+*/
+
+Each instance of a class has it's own variables or fields. You can create many
+instances of a class and assign many values to each instance variable of field.
+Instance methods can be used to manipulate the variable.
+
+However with a local variable, the variable is declared inside a method and only
+accessible to statements inside the method. Nothing outside the method can interact
+with the local variable.
+
+
+/**
+    4) Write a static void method named printBackwards.
+*/
+
+public static void printBackwards(String textLine) {
+    for (int i = (textLine.length() - 1), i >= 0; i--) {
+        System.out.print(textLine.charAt(i));
+    }
+}
+
+
+/**
+    5) Write statements that will print out the following shape using nested for loops.
+*/
+
+for (int i = 0; i < 4; i++) {
+    for (int j = i ); j < 4; i++) {
+        System.out.print("X");
+    }
+    System.out.println();
+}
+
+
+/**
+    6) Write a class named ReceiptItem.
+*/
+
+public class ReceiptItem {
+    private String itemName;    // name of item
+    private int itemQuantity;   // quantity of item
+    private double itemPrice;   // price of item
+
+    /**
+        Three argument constructor
+        @param name The name of the item.
+        @param quantity The quantity of the item.
+        @param price The price of the item.
+    */
+
+    public ReceiptItem(String name, int quantity, double price) {
+        itemName = name;
+        itemQuantity = quantity;
+        itemPrice = price;
+    }
+
+
+    /**
+        The setName method sets the name of the item
+        @param name The name of the item
+    */
+
+    public void setName(String name)	{
+        itemName = name;
+    }
+
+
+    /**
+        The getName method returns the name of the item
+        @return The name of the item
+    */
+
+    public String getName() {
+        return itemName;
+    }
+
+
+    /**
+        The setQuantity method sets the quantity of the item
+        @param quantity The quantity of the item
+    */
+
+    public void setQuantity(int quantity)	{
+        itemQuantity = quantity;
+    }
+
+
+    /**
+        The getQuantity method returns quantity of the item
+        @return The quantity of the item
+    */
+
+    public int getQuantity() {
+        return itemQuantity;
+    }
+
+
+    /**
+        The setPrice method sets the price of the item
+        @param name The name of the item
+    */
+
+    public void setPrice(double price)	{
+        itemPrice = price;
+    }
+
+
+    /**
+        The getPrice method returns the price of the item
+        @return The price of the item
+    */
+
+    public double getPrice() {
+        return itemPrice;
+    }
+
+
+    /**
+        The getTotal method returns the price times the quantity
+        @return The price times the quantity
+    */
+
+    public double getTotal() {
+        return itemPrice * itemQuantity;
+    }
+
+
+    /**
+        toString method returns format string
+        @return The string format <name> x <quantity> at <price>: <total>
+    */
+
+    public String toString() {
+        String str = this.getName() + " x " + this.getQuantity() + " at " +
+                     this.getPrice() + ": " + this.getTotal();
+        return str;
+    }
+}
+
+
+/**
+    7) Write a staic method that accepts an array of ReceiptItems.
+*/
+
+public static double totalAllItems(ReceiptItems[] shopList) {
+    // declare variable for total value of all items
+    double totalValue = 0;
+
+    // loop through array and add to running total the getTotal method
+    for (int i = 0; i < shopList.length; i++) {
+        if (shopList[i].getTotal() > 0 ) {
+            totalValue += shopList[i].getTotal();
+        }
+    }
+
+    // return totalValue
+    return totalValue;
+}
