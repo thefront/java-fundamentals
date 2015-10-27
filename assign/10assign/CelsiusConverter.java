@@ -1,5 +1,5 @@
 // Name: Richar Tzeng
-// Date: 10/23/2015
+// Date: 10/26/2015
 // Description: This progarm will use a JFrame and prompt you to enter a
 //              temperature in Celsius and then converts it to farenheit.
 // Inputs: a number
@@ -12,7 +12,7 @@ import java.awt.event.*;    // needed for ActionListener Interface
 
 /**
     The CelsiusConverter class displays a JFrame that lets the user enter a
-    temperature in Celsius. When the Calculate button is clicked, a JTextField
+    temperature in Celsius. When the Convert button is clicked, a JLabel
     will display the converted temperature.
 */
 
@@ -55,10 +55,10 @@ public class CelsiusConverter extends JFrame {
   */
 
   private void buildPanel() {
-    // Create a text field 10 characters wide.
+    // Create a text field 5 characters wide.
     celsiusTextField = new JTextField(5);
 
-    // Create a button wih the caption "Calculate".
+    // Create a button wih the caption "Convert".
     convertButton = new JButton("Convert");
 
     // Add an action listener to the button.
@@ -82,6 +82,7 @@ public class CelsiusConverter extends JFrame {
   */
 
   private class convertButtonListener implements ActionListener {
+    
     /**
         The actionPerformed method executes when the user clicks on the
         Convert button.
