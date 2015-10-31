@@ -1,4 +1,4 @@
-// Code-Listing 9-8
+// Code-Listing 9-9
 
 /**
     This program demonstrates the DateComponent class.
