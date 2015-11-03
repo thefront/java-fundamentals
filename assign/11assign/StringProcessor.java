@@ -1,25 +1,179 @@
 // Name: Richard Tzeng
 // Date: 11-01-2015
-// Description:
+// Description: This class provides methods to analyze a given string of text.
 
-StringProcessor()
+import java.util.*;
 
-StringProcessor(String s)
+public class StringProcessor {
+  private String str;         // to hold the string that was entered
 
-void setString(String s)
+  /**
+      The default constructor
+  */
 
-String getString()
+  public StringProcessor() {
+    str = "";
+  }
 
-int wordCount()
+  /**
+      The constructor
+      @param s The string to analyze and set str to.
+  */
 
-int uppercaseCount()
+  public StringProcessor(String s) {
+    str = s;
+  }
 
-int digitCount()
+  /**
+      The setString method
+      @param s The string to set variable str to.
+  */
 
-int digitWordCount()
+  public void setString(String s) {
+    str = s;
+  }
 
-String getNoSpaceString()
+  /**
+      The getString method
+      @return The string that's entered.
+  */
 
-String getNoVowelString()
+  public String getString() {
+    return str;
+  }
 
-String getNoDigitWordString()
+  /**
+      The workCount method
+      @return The count of words.
+  */
+
+  public int wordCount() {
+    // need to tokenize the string
+    StringTokenizer strTokenizer = new StringTokenizer(str);
+    return strTokenizer.countTokens();
+  }
+
+  /**
+      The uppercaseCount method
+      @return The number of upper case words.
+  */
+
+  public int uppercaseCount() {
+    int count = 0;  // set count to 0
+    // need to tokenize the string
+    StringTokenizer strTokenizer = new StringTokenizer(str);
+
+    // loop through tokens to count uppercase words
+    while (strTokenizer.hasMoreTokens()) {
+      // convert token back to string
+      String word = strTokenizer.nextToken();
+
+      if (Character.isUpperCase(word.charAt(0))) {
+        count++;
+      }
+    }
+
+    return count;   // return count of upper case words
+  }
+
+  /**
+    The digitCount method
+    @return The count of any numberical digits in the given text.
+  */
+
+  public int digitCount() {
+    int count = 0;  // set count to 0
+    // need to tokenize the string
+    StringTokenizer strTokenizer = new StringTokenizer(str);
+
+    // loop through tokens to count words that are digits
+    while (strTokenizer.hasMoreTokens()) {
+      // convert token back to string
+      String word = strTokenizer.nextToken();
+
+      // Test that word is one character
+      if (word.length() == 1) {
+        // assign character to ch variable
+        char ch = word.charAt(0);
+
+        if (Character.isDigit(ch)) {
+          count++;
+        }
+      }
+    }
+
+    return count; // return count of upper case words
+  }
+
+  /**
+      The digitWordCount method
+      @return The count of words that spell out a digit.
+  */
+
+  public int digitWordCount() {
+    int count = 0;  // set count to 0
+    // need to tokenize the string
+    StringTokenizer strTokenizer = new StringTokenizer(str);
+    // Create string array
+    String[] wordDigit = { "zero", "one", "two", "three", "four", "five", "six",
+                           "seven", "eight", "nine" };
+
+    while (strTokenizer.hasMoreTokens()) {
+      // convert token to string
+      String word = strTokenizer.nextToken();
+
+      // loop to find matches of word digits
+      for (int i = 0; i < wordDigit.length; i++) {
+        if (word.trim().startsWith(wordDigit[i])) {
+          count++;
+        }
+      }
+    }
+
+    return count; // return count of upper case words
+  }
+
+  /**
+      The getNoSpaceString method
+      @return The string with all spaces taken out.
+  */
+
+  public String getNoSpaceString() {
+    // need to tokenize the string
+    StringTokenizer strTokenizer = new StringTokenizer(str);
+
+    // create a string builder
+    StringBuilder noSpaces = new StringBuilder();
+
+    // loop through the string to append with out the spaces.
+    while (strTokenizer.hasMoreTokens()) {
+      // convert token to string and append to StringBuilder
+      String word = strTokenizer.nextToken();
+      noSpaces.append(word.trim());
+    }
+
+    // convert StringBuilder toString and return newString
+    String newString = noSpaces.toString();
+    return newString;
+  }
+
+  /**
+      The getNoVowelString method
+      @return The string with vowels replaced with a -.
+  */
+
+  public String getNoVowelString() {
+    // create arrays of vowels and covert string to characters
+    char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+    char[] strCharArray;
+    strCharArray = str.toCharArray();
+
+    // loop through each character and
+  }
+
+  /**
+  public String getNoDigitWordString() {
+
+  }
+  */
+}
