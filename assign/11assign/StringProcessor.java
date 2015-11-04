@@ -163,17 +163,57 @@ public class StringProcessor {
   */
 
   public String getNoVowelString() {
-    // create arrays of vowels and covert string to characters
-    char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
-    char[] strCharArray;
-    strCharArray = str.toCharArray();
+    // create character array covert string to characters
+    char[] strCharArray = str.toCharArray();
+
+    // create a string builder
+    StringBuilder vowelReplace = new StringBuilder();
 
     // loop through each character and
+    for (int i = 0; i < strCharArray.length; i++) {
+      if (strCharArray[i] == 'a' || strCharArray[i] == 'e' ||
+          strCharArray[i] == 'i' || strCharArray[i] == 'o' ||
+          strCharArray[i] == 'u') {
+          strCharArray[i] = '-';
+      }
+
+      // append to new string
+      vowelReplace.append(strCharArray[i]);
+    }
+
+    // convert StringBuilder toString and return newString
+    String newString = vowelReplace.toString();
+    return newString;
   }
 
   /**
-  public String getNoDigitWordString() {
-
-  }
+      The getNoDigitWordString method
+      @return The string with number words replaced with digits.
   */
+
+  public String getNoDigitWordString() {
+    // create a string builder
+    String wordToDigit = str; // = new StringBuilder(str);
+
+    // loop to replace word to numbers
+    for (int i = 0; i <= 9; i++) {
+      wordToDigit = wordToDigit.replaceAll(String.valueOf(i), Integer.toString(i));
+    }
+    /*/ replace word numbers with digits
+    wordToDigit = str.replaceAll("zero", "0");
+    wordToDigit = wordToDigit.replaceAll("one", "1");
+    /**wordToDigit.replaceAll("two", "2");
+    wordToDigit.replaceAll("three", "3");
+    wordToDigit.replaceAll("four", "4");
+    wordToDigit.replaceAll("five", "5");
+    wordToDigit.replaceAll("six", "6");
+    wordToDigit.replaceAll("seven", "7");
+    wordToDigit.replaceAll("eight", "8");
+    wordToDigit.replaceAll("nine", "9");
+*/
+
+    // convert StringBuilder toString and return newString
+    //String newString = wordToDigit.toString();
+    return wordToDigit;
+  }
 }

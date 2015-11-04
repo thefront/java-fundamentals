@@ -22,5 +22,7 @@ public class StringProcessorProgram {
     System.out.println("This is digitCount: " + textQuote.digitCount());
     System.out.println("DigitWords: " + textQuote.digitWordCount());
     System.out.println("noSpaces: " + textQuote.getNoSpaceString());
+    System.out.println("vowel: " + textQuote.getNoVowelString());
+    System.out.println("wordTo: " + textQuote.getNoDigitWordString());
   }
 }
