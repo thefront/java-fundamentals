@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 11/1/2015
+// Date: 11/3/2015
 // Description: This program tests the StringProcessor class
 //
 
@@ -7,22 +7,38 @@ import java.util.*;
 
 public class StringProcessorProgram {
   public static void main(String[] args) {
-    String input;       // To hold the string input
-    Scanner keyboard = new Scanner(System.in);
+    // set repeat answer to yes
+    char answer = 'y';
 
-    // get the string
-    System.out.print("Enter a line of text: ");
-    input = keyboard.nextLine();
+    // create StringProcessor object
+    StringProcessor textQuote = new StringProcessor();
 
-    StringProcessor textQuote = new StringProcessor(input);
+    // loop to get input and print output
+    do {
+      // get the string
+      Scanner keyboard = new Scanner(System.in);
+      System.out.print("Enter a line of text: ");
+      String input = keyboard.nextLine();
 
-    System.out.println("This is getString: " + textQuote.getString());
-    System.out.println("This is the word count: " + textQuote.wordCount());
-    System.out.println("This is # upper words: " + textQuote.uppercaseCount());
-    System.out.println("This is digitCount: " + textQuote.digitCount());
-    System.out.println("DigitWords: " + textQuote.digitWordCount());
-    System.out.println("noSpaces: " + textQuote.getNoSpaceString());
-    System.out.println("vowel: " + textQuote.getNoVowelString());
-    System.out.println("wordTo: " + textQuote.getNoDigitWordString());
+      //set the StringProcessor object to string
+      textQuote.setString(input);
+
+      // print output
+      System.out.println("words: " + textQuote.wordCount());
+      System.out.println("uppercase: " + textQuote.uppercaseCount());
+      System.out.println("digits: " + textQuote.digitCount());
+      System.out.println("digit words: " + textQuote.digitWordCount());
+      System.out.println("line w/whitespace removed: " + '"' +
+                          textQuote.getNoSpaceString() + '"');
+      System.out.println("line w/digit vowels replaced: " + '"' +
+                          textQuote.getNoVowelString() + '"');
+      System.out.println("line w/digit words replaced: " + '"' +
+                          textQuote.getNoDigitWordString() + '"');
+
+      // repeat
+      System.out.print("Do you want to enter another? (y/n): ");
+      answer = keyboard.next().charAt(0);
+
+    } while (Character.toLowerCase(answer) != 'n');
   }
 }
