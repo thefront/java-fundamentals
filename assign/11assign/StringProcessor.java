@@ -1,5 +1,5 @@
 // Name: Richard Tzeng
-// Date: 11-01-2015
+// Date: 11-3-2015
 // Description: This class provides methods to analyze a given string of text.
 
 import java.util.*;
@@ -114,9 +114,10 @@ public class StringProcessor {
     int count = 0;  // set count to 0
     // need to tokenize the string
     StringTokenizer strTokenizer = new StringTokenizer(str);
+
     // Create string array
-    String[] wordDigit = { "zero", "one", "two", "three", "four", "five", "six",
-                           "seven", "eight", "nine" };
+    String[] wordDigit = { "zero", "one", "two", "three", "four", "five",
+     "six", "seven", "eight", "nine" };
 
     while (strTokenizer.hasMoreTokens()) {
       // convert token to string
@@ -192,28 +193,40 @@ public class StringProcessor {
   */
 
   public String getNoDigitWordString() {
-    // create a string builder
-    String wordToDigit = str; // = new StringBuilder(str);
+    // need to tokenize the string
+    StringTokenizer strTokenizer = new StringTokenizer(str);
 
-    // loop to replace word to numbers
-    for (int i = 0; i <= 9; i++) {
-      wordToDigit = wordToDigit.replaceAll(String.valueOf(i), Integer.toString(i));
+    // create a string builder
+    StringBuilder wordToDigit = new StringBuilder();
+
+    // Create string array
+    String[] wordDigit = { "zero", "one", "two", "three", "four", "five",
+                           "six", "seven", "eight", "nine" };
+
+    /*/ loop to replace word to numbers
+    for (int i = 0; i < wordDigit.length; i++) {
+      wordToDigit = wordToDigit.replaceAll(wordDigit[i], String.valueOf(i));
     }
-    /*/ replace word numbers with digits
-    wordToDigit = str.replaceAll("zero", "0");
-    wordToDigit = wordToDigit.replaceAll("one", "1");
-    /**wordToDigit.replaceAll("two", "2");
-    wordToDigit.replaceAll("three", "3");
-    wordToDigit.replaceAll("four", "4");
-    wordToDigit.replaceAll("five", "5");
-    wordToDigit.replaceAll("six", "6");
-    wordToDigit.replaceAll("seven", "7");
-    wordToDigit.replaceAll("eight", "8");
-    wordToDigit.replaceAll("nine", "9");
-*/
+    */
+
+    while (strTokenizer.hasMoreTokens()) {
+      // convert token to string
+      String word = strTokenizer.nextToken();
+
+      // loop to find matches of word digits
+      for (int i = 0; i < wordDigit.length; i++) {
+        if (word.toLowerCase().trim().startsWith(wordDigit[i])) {
+          word = String.valueOf(i);
+        }
+      }
+
+      // append to string builder
+      wordToDigit.append(word);
+      wordToDigit.append(" ");
+    }
 
     // convert StringBuilder toString and return newString
-    //String newString = wordToDigit.toString();
-    return wordToDigit;
+    String newString = wordToDigit.toString();
+    return newString.trim();
   }
 }
