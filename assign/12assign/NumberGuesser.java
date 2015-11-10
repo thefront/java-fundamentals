@@ -7,7 +7,7 @@
 
 public class NumberGuesser {
 
-  // assign instance variables
+  // assign instance variables set to protected to make available to subclasses
   protected int lowerGuess;    // lowerGuess value changes after each answer
   protected int upperGuess;    // upperGuess value changes after each answer
   protected int origLower;     // variable to set the original values

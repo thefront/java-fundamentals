@@ -20,6 +20,7 @@ public class RandomNumberGuesser extends NumberGuesser {
     super(lowerBound, upperBound);
   }
 
+
   /**
       The getCurrentGuess method overrides the superclass's getCurrentGuess
       method.
@@ -53,5 +54,17 @@ public class RandomNumberGuesser extends NumberGuesser {
 
     // return the value
     return randomGuess;
+  }
+
+
+  /**
+      The reset method sets the lower/upper/randomGuess values back to the
+      original values.
+  */
+
+  public void reset() {
+    lowerGuess = origLower;
+    upperGuess = origUpper;
+    randomGuess = 0;
   }
 }

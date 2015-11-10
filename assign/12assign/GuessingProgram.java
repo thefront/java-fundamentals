@@ -72,18 +72,14 @@ public class GuessingProgram {
 
     // loop between response to guess and get midpoint to narrow the guess
     do {
-      System.out.println("print#1 " + mainGame.getCurrentGuess());
-      System.out.println("print#2 " + mainGame.getCurrentGuess());
       guessAgain = getUserResponseToGuess(mainGame.getCurrentGuess());
 
       if (guessAgain == 'l' || guessAgain == 'L') {
         // calls lower to assign guess to high int
-        System.out.println("calling lower sets upper guess");
         mainGame.lower();
       }
       else if (guessAgain == 'h' || guessAgain == 'H') {
         // calls higher to assign guess to low int
-        System.out.println("calling highter sets lower guess");
         mainGame.higher();
       }
       else if (guessAgain == 'c' || guessAgain == 'C') {
