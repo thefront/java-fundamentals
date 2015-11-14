@@ -8,8 +8,8 @@ ANSWER:  I do not see any examples in the code.
 even though they are not defined as instance variables in MyCircle.java?
 
 ANSWER: The x and y values are declared in the GridItem class as "protected".
-        This means that any subClass like MyCircle inherits the variables. The
-        MyCircle subclass extends GridItem.
+        This means that any subClass like MyCircle inherits the protected fields
+        variables. The MyCircle subclass extends GridItem.
 
 
 3) Put a System.out.println statement into each containsPoint method
@@ -23,7 +23,7 @@ ANSWER:
 4) Notice that x and y are declared as ‘protected’ in GridItem. Change
 this to ‘private’ and recompile. How does the compiler respond?
 
-ANSWER: The compiler runs fine. when you run the demo program it returns an
+ANSWER: The compiler runs fine. But when you run the demo program it returns an
         exception where it states that it tried to access the x field from the
         subClass, MyCircle, but we run into a java.lang.IllegalAccessError.
 

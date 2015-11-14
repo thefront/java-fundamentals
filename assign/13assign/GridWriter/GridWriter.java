@@ -97,17 +97,3 @@ public class GridWriter {
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
