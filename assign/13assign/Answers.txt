@@ -17,7 +17,8 @@ ANSWER: The x and y values are declared in the GridItem class as "protected".
 output. You will notice that GridItem’s containsPoint method is never
 called. Why is this?
 
-ANSWER: 
+ANSWER: The GridItem method never gets called because MyCircle and My Rectangle
+        have an overriding method in the subclass.
 
 
 4) Notice that x and y are declared as ‘protected’ in GridItem. Change
@@ -30,7 +31,7 @@ ANSWER: The compiler runs fine. But when you run the demo program it returns an
 
 5) How could Abstract Methods have been used to make the code cleaner?
 
-ANSWER:
+ANSWER: You could use Abstract method
 
 
 6) How might an Interface have been used to structure the classes?
