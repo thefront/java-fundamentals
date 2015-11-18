@@ -2,7 +2,9 @@
 say, statements where the datatype of a reference is not an exact match
 with the datatype of the object that it refers to.
 
-ANSWER:  I do not see any examples in the code.
+ANSWER:  In the GridWriter add method the datatype is a GridItem, but in the
+         GridWriterProgram, the added item is referencing MyCircle, MyRectangle,
+         or MySquare.
 
 2) In the containsPoint method of MyCircle, why are x and y in scope,
 even though they are not defined as instance variables in MyCircle.java?
@@ -31,9 +33,14 @@ ANSWER: The compiler runs fine. But when you run the demo program it returns an
 
 5) How could Abstract Methods have been used to make the code cleaner?
 
-ANSWER: You could use Abstract method
+ANSWER: You could use an Abstract class for GridItem as all the method are
+        overridden by the sub classes. The actual setters and getters in the
+        GridItem class aren't needed as each shape has it's own setters/getters.
 
 
 6) How might an Interface have been used to structure the classes?
 
-ANSWER:
+ANSWER: You can define interfaces for each method that are shared between each
+        GridItem. The containsPoint and getArea are a good methods to have
+        interfaces for. These would be required to be defined in each class that
+        is extended from the interface class.
