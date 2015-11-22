@@ -20,7 +20,11 @@ public class BankAccount {
       @param startBalance The starting balance.
   */
 
-  public BankAccount(double startBalance) {
+  public BankAccount(double startBalance) throws NegativeStartingBalance {
+    if (startBalance < 0) {
+      throw new NegativeStartingBalance(startBalance);
+    }
+
     balance = startBalance;
   }
 
