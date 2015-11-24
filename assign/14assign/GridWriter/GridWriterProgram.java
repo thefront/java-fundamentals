@@ -15,10 +15,14 @@ public class GridWriterProgram {
 		gw.add(new MyCircle(10, 10, 10));
 		gw.add(new MyRectangle(40, 0, 10, 10));
 
-		//gw.display();
-		for (int i = 0; i < gw.size(); i++) {
+		gw.display();
+		try {
+			for (int i = 0; i < gw.size(); i++) {
         System.out.println(gw.get(i).getArea());
+			}
+		}
+		catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
 		}
 	}
-
 }

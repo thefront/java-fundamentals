@@ -97,8 +97,8 @@ public class GridWriter {
 	}
 
 	/**
-			The size method
-			@return The number of GridItems stored in the GridWriter.
+		The size method
+		@return The number of GridItems stored in the GridWriter.
 	*/
 
 	public int size() {
@@ -106,15 +106,15 @@ public class GridWriter {
 	}
 
 	/**
-			The get method
-			@param index Index number of the circle or rectangle in the GridWriter.
-			@return The stored GridItem by index.
+		The get method
+		@param index Index number of the circle or rectangle in the GridWriter.
+		@return The stored GridItem by index.
 	*/
 
 	public GridItem get(int index) throws IndexOutOfBoundsException {
 		if (items.length > 2) {
-			throw new IndexOutOfBoundsException("WATCH OUT MAN!!! Can only use 2" +
-								" GridItem objects in this here progarm.");
+			throw new IndexOutOfBoundsException("WARNING: Can only use 2" +
+								" GridItem objects in this progarm.");
 		}
 		return items[index];
 	}
