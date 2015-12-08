@@ -1,10 +1,11 @@
 
-public class BlinkCell extends AbstractCell {
+public class BlinkerCell extends AbstractCell {
 
-	public BlinkCell(int r, int c, ConwayWorld w) {
+	public BlinkerCell(int r, int c, ConwayWorld w) {
 		super(r, c, w);
-	}	
+	}
 
+  // alternate alive and never-alive
 	public boolean willBeAliveInNextGeneration() {
 		if (getIsAlive()) {
 			return false;
@@ -12,12 +13,12 @@ public class BlinkCell extends AbstractCell {
 			return true;
 		}
 	}
-	
+
 	public AbstractCell cellForNextGeneration() {
-		BlinkCell next = new BlinkCell(getRow(), getColumn(), world);
-		
+		BlinkerCell next = new BlinkerCell(getRow(), getColumn(), world);
+
 		next.setIsAlive(willBeAliveInNextGeneration());
-		
+
 		return next;
 	}
 }

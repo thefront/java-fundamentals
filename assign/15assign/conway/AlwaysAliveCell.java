@@ -1,23 +1,23 @@
 
 public class AlwaysAliveCell extends AbstractCell {
-	
+
 	public AlwaysAliveCell(int r, int c, ConwayWorld w) {
 		super(r, c, w);
 	}
-	
+
 	public  AbstractCell cellForNextGeneration() {
 		return this;
 	}
-	
+
 	public boolean willBeAliveInNextGeneration() {
 		return true;
 	}
-	
+
 	public boolean isAlive() {
 		return false;
 	}
-	
+
 	public char displayCharacter() {
-		return '+';
+		return 'O';
 	}
 }
