@@ -1,0 +1,9 @@
+Richard Tzeng
+Assignment 15
+12-7-2015
+Fall CS 111B
+
+The new BlinkerCell is a cell that looks like a cross. You will be prompted to
+enter the location of the center cell. Once placed, the 3 cells will blink on
+and off with the center one always on ("alive"). The original 5 ConwayCells 
+will morph based on the location of your new BlinkerCell.
